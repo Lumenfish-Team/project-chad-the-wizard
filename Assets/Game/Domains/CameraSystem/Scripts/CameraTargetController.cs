@@ -1,7 +1,9 @@
+using Lumenfish.Player;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using VContainer;
 
-namespace Lumenfish.CameraSystems
+namespace Lumenfish.CameraSystem
 {
     /// <summary>
     /// Calculates a dynamic camera target position by blending the player's position with 
@@ -9,30 +11,36 @@ namespace Lumenfish.CameraSystems
     /// </summary>
     public class CameraTargetController : MonoBehaviour
     {
-        [Header("References")]
-        public Transform playerTransform;
-        public Vector2Variable lookDirectionVariable;
-        public Vector2Variable moveDirectionVariable;
+        [Header("Variables")]
+        [SerializeField] private Vector2Variable lookDirectionVariable;
+        [SerializeField] private Vector2Variable moveDirectionVariable;
 
         [Header("Aim Settings")] 
         [Tooltip("The maximum distance the camera shifts towards the crosshair/aim direction.")]
-        public float aimLeadDistance;
+        [SerializeField] private float aimLeadDistance;
         
         [Tooltip("Smoothing time for the aim offset. Lower values make it snappier.")]
-        public float aimLeadSmoothTime;
+        [SerializeField] private float aimLeadSmoothTime;
 
         [Header("Movement Settings")] 
         [Tooltip("The maximum distance the camera shifts in the direction of movement.")]
-        public float movementLeadDistance;
+        [SerializeField] private float movementLeadDistance;
         
         [Tooltip("Smoothing time for the movement offset. Higher values feel heavier/smoother.")]
-        public float movementLeadSmoothTime;
+        [SerializeField] private float movementLeadSmoothTime;
         
+        private Transform _playerTransform;
         private Vector3 _currentAimOffset;
         private Vector3 _aimVelocity;
         private Vector3 _currentMoveOffset;
         private Vector3 _moveVelocity;
 
+        [Inject]
+        public void Construct(PlayerController playerController)
+        {
+            _playerTransform = playerController.transform;
+        }
+        
         private void LateUpdate()
         {
             var targetAimOffset = GetRawAimOffset();
@@ -44,7 +52,7 @@ namespace Lumenfish.CameraSystems
             _currentMoveOffset = Vector3.SmoothDamp(_currentMoveOffset, targetMoveOffset, ref _moveVelocity, 
                 movementLeadSmoothTime);
             
-            var finalPosition = playerTransform.position + _currentAimOffset + _currentMoveOffset;
+            var finalPosition = _playerTransform.position + _currentAimOffset + _currentMoveOffset;
             finalPosition.z = 0;
 
             transform.position = finalPosition;

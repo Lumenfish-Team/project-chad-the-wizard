@@ -7,8 +7,8 @@ namespace Lumenfish.InputHandling
     public class InputReader : MonoBehaviour, InputActions.IPlayerActions
     {
         [Header("Variables")]
-        public Vector2Variable moveDirectionVariable;
-        public Vector2Variable lookDirectionVariable;
+        [SerializeField] private Vector2Variable moveDirectionVariable;
+        [SerializeField] private Vector2Variable lookDirectionVariable;
         
         private InputActions _inputActions;
         
