@@ -30,8 +30,8 @@ namespace Lumenfish.InputHandling
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            var moveDirectionVector = context.ReadValue<Vector2>();
-            moveDirectionVariable.SetValue(moveDirectionVector);
+            var rawInput = context.ReadValue<Vector2>();
+            moveDirectionVariable.SetValue(rawInput);
         }
 
         public void OnLook(InputAction.CallbackContext context)
