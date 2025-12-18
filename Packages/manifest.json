@@ -4,6 +4,7 @@
     "com.kyrylokuzyk.primetween": "1.3.3",
     "com.unity-atoms.unity-atoms-base-atoms": "4.5.0",
     "com.unity-atoms.unity-atoms-core": "4.5.0",
+    "com.unity.cinemachine": "3.1.5",
     "com.unity.collab-proxy": "2.10.0",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.38",
@@ -12,6 +13,7 @@
     "com.unity.render-pipelines.universal": "17.0.4",
     "com.unity.test-framework": "1.6.0",
     "com.unity.timeline": "1.8.9",
+    "jp.hadashikick.vcontainer": "1.17.0",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
@@ -32,8 +34,7 @@
     "com.unity.modules.tilemap": "1.0.0",
     "com.unity.modules.ui": "1.0.0",
     "com.unity.modules.uielements": "1.0.0",
-    "com.unity.modules.umbra": "1.0.0",
-    "jp.hadashikick.vcontainer": "1.17.0"
+    "com.unity.modules.umbra": "1.0.0"
   },
   "scopedRegistries": [
     {
