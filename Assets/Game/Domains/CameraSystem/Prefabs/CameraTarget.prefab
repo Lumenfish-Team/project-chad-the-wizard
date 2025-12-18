@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   lookDirectionVariable: {fileID: 11400000, guid: 08e03aee4d0b44ff8a99816146739e4b, type: 2}
-  lookAheadDistance: 1.5
-  smoothTime: 0.1
-  inputDeadzone: 0.1
+  moveDirectionVariable: {fileID: 11400000, guid: 7b90fc7af48b64a1ea72d5f2f144fc87, type: 2}
+  aimLeadDistance: 1.5
+  aimLeadSmoothTime: 0.1
+  movementLeadDistance: 3
+  movementLeadSmoothTime: 0.35
