@@ -1,0 +1,44 @@
+using UnityAtoms.BaseAtoms;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace Lumenfish.InputHandling
+{
+    public class InputReader : MonoBehaviour, InputActions.IPlayerActions
+    {
+        [Header("Variables")]
+        [SerializeField] private Vector2Variable moveDirectionVariable;
+        [SerializeField] private Vector2Variable lookDirectionVariable;
+        
+        private InputActions _inputActions;
+        
+        private void Awake()
+        {
+            _inputActions = new InputActions();
+            _inputActions.Player.SetCallbacks(this);
+        }
+
+        private void OnEnable()
+        {
+            _inputActions.Player.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _inputActions.Player.Disable();
+        }
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            var rawInput = context.ReadValue<Vector2>();
+            moveDirectionVariable.SetValue(rawInput);
+        }
+
+        public void OnLook(InputAction.CallbackContext context)
+        {
+            var lookDirectionVector = context.ReadValue<Vector2>();
+            lookDirectionVariable.SetValue(lookDirectionVector);
+        }
+        
+    }
+}

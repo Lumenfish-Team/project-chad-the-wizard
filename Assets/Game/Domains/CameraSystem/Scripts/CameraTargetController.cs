@@ -1,0 +1,73 @@
+using Lumenfish.Player;
+using UnityAtoms.BaseAtoms;
+using UnityEngine;
+using VContainer;
+
+namespace Lumenfish.CameraSystem
+{
+    public class CameraTargetController : MonoBehaviour
+    {
+        [Header("Variables")]
+        [SerializeField] private Vector2Variable lookDirectionVariable;
+        [SerializeField] private Vector2Variable moveDirectionVariable;
+
+        [Header("Aim Settings")] 
+        [Tooltip("The maximum distance the camera shifts towards the crosshair/aim direction.")]
+        [SerializeField] private float aimLeadDistance;
+        
+        [Tooltip("Smoothing time for the aim offset. Lower values make it snappier.")]
+        [SerializeField] private float aimLeadSmoothTime;
+
+        [Header("Movement Settings")] 
+        [Tooltip("The maximum distance the camera shifts in the direction of movement.")]
+        [SerializeField] private float movementLeadDistance;
+        
+        [Tooltip("Smoothing time for the movement offset. Higher values feel heavier/smoother.")]
+        [SerializeField] private float movementLeadSmoothTime;
+        
+        private Transform _playerTransform;
+        private Vector3 _currentAimOffset;
+        private Vector3 _aimVelocity;
+        private Vector3 _currentMoveOffset;
+        private Vector3 _moveVelocity;
+
+        [Inject]
+        public void Construct(PlayerController playerController)
+        {
+            _playerTransform = playerController.transform;
+        }
+        
+        private void LateUpdate()
+        {
+            var targetAimOffset = GetRawAimOffset();
+            var targetMoveOffset = GetRawMoveOffset();
+            
+            _currentAimOffset = Vector3.SmoothDamp(_currentAimOffset, targetAimOffset, ref _aimVelocity, 
+                aimLeadSmoothTime); 
+            
+            _currentMoveOffset = Vector3.SmoothDamp(_currentMoveOffset, targetMoveOffset, ref _moveVelocity, 
+                movementLeadSmoothTime);
+            
+            var finalPosition = _playerTransform.position + _currentAimOffset + _currentMoveOffset;
+            finalPosition.z = 0;
+
+            transform.position = finalPosition;
+        }
+
+        private Vector3 GetRawAimOffset()
+        {
+            // Return zero if no input, otherwise calculate offset based on direction and distance
+            if (lookDirectionVariable.Value == Vector2.zero) return Vector3.zero;
+            
+            return lookDirectionVariable.Value.normalized * aimLeadDistance;
+        }
+
+        private Vector3 GetRawMoveOffset()
+        {
+            // Return zero if no input, otherwise calculate offset based on direction and distance
+            if (moveDirectionVariable.Value == Vector2.zero) return Vector3.zero;
+            
+            return moveDirectionVariable.Value.normalized * movementLeadDistance;
+        }
+    }
+}
