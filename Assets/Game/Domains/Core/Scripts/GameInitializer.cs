@@ -20,7 +20,5 @@ public class GameInitializer : LifetimeScope
         
         var followCamera = Instantiate(playerFollowCamera);
         builder.RegisterComponent(followCamera);
-        
-        
     }
 }

@@ -5,10 +5,6 @@ using VContainer;
 
 namespace Lumenfish.CameraSystem
 {
-    /// <summary>
-    /// Calculates a dynamic camera target position by blending the player's position with 
-    /// independently smoothed offsets for aiming and movement. 
-    /// </summary>
     public class CameraTargetController : MonoBehaviour
     {
         [Header("Variables")]

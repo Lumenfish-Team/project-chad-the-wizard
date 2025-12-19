@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5380359198106995093}
   - component: {fileID: 4562445030224150025}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   moveDirectionVariable: {fileID: 11400000, guid: 7b90fc7af48b64a1ea72d5f2f144fc87, type: 2}
+  playerPositionVariable: {fileID: 11400000, guid: 7199623695ffd4f549aeb2704401b117, type: 2}
 --- !u!1 &9211011075409644112
 GameObject:
   m_ObjectHideFlags: 0

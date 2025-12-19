@@ -15,5 +15,4 @@ namespace Lumenfish.CameraSystem
             _cinemachineCamera.Target.TrackingTarget = cameraTargetController.transform;
         }
     }
-
 }
