@@ -1,4 +1,3 @@
-using System;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ namespace Lumenfish.Player
     public class PlayerMover : MonoBehaviour
     {
         [Header("Settings")]
-        [Tooltip("How fast the player moves")]
+        [Tooltip("Movement speed in units per second")]
         [SerializeField] private float moveSpeed;
         
         [Header("Variables")]
@@ -16,21 +15,10 @@ namespace Lumenfish.Player
         [SerializeField] private Vector2Variable playerPositionVariable;
         
         private Rigidbody2D _rigidbody2D;
-        private Vector2 _targetMoveDirection;
 
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-        }
-
-        private void OnEnable()
-        {
-            moveDirectionVariable.Changed.Register(SetMoveDirection);
-        }
-
-        private void OnDisable()
-        {
-            moveDirectionVariable.Changed.Unregister(SetMoveDirection);
         }
 
         private void Update()
@@ -40,17 +28,8 @@ namespace Lumenfish.Player
 
         private void FixedUpdate()
         {
-            ApplyMovement();
-        }
-
-        private void SetMoveDirection(Vector2 moveDirection)
-        {
-            _targetMoveDirection = moveDirection;
-        }
-        
-        private void ApplyMovement()
-        {
-            _rigidbody2D.linearVelocity = _targetMoveDirection * moveSpeed;
+            var direction = moveDirectionVariable.Value;
+            _rigidbody2D.linearVelocity = direction * moveSpeed;
         }
     }
 }

@@ -51,3 +51,4 @@ MonoBehaviour:
   playerControllerPrefab: {fileID: 3277850212092000868, guid: d74dc83d299334a648bdbca6c62b53c3, type: 3}
   playerFollowCamera: {fileID: 7587560986334851263, guid: da7b420df303448b1a176c5845587b85, type: 3}
   cameraTargetControllerPrefab: {fileID: 1563185293854468725, guid: f2bfae422affd4c8488a6ef21f4e3ba3, type: 3}
+  mainCamera: {fileID: 5919481615758092642, guid: 873a76b71aa084041859db961c78408f, type: 3}

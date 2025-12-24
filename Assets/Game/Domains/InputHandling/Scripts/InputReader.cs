@@ -6,8 +6,11 @@ namespace Lumenfish.InputHandling
 {
     public class InputReader : MonoBehaviour, InputActions.IPlayerActions
     {
-        [Header("Variables")]
+        [Header("Output Variables")]
+        [Tooltip("Atom variable to output move input to.")]
         [SerializeField] private Vector2Variable moveDirectionVariable;
+        
+        [Tooltip("Atom variable to output look/aim input to.")]
         [SerializeField] private Vector2Variable lookDirectionVariable;
         
         private InputActions _inputActions;
@@ -22,7 +25,7 @@ namespace Lumenfish.InputHandling
         {
             _inputActions.Player.Enable();
         }
-
+        
         private void OnDisable()
         {
             _inputActions.Player.Disable();
@@ -30,15 +33,12 @@ namespace Lumenfish.InputHandling
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            var rawInput = context.ReadValue<Vector2>();
-            moveDirectionVariable.SetValue(rawInput);
+            moveDirectionVariable.SetValue(context.ReadValue<Vector2>());
         }
 
         public void OnLook(InputAction.CallbackContext context)
         {
-            var lookDirectionVector = context.ReadValue<Vector2>();
-            lookDirectionVariable.SetValue(lookDirectionVector);
+            lookDirectionVariable.SetValue(context.ReadValue<Vector2>());
         }
-        
     }
 }

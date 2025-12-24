@@ -23,7 +23,7 @@ namespace Lumenfish.Player.UI
         
         private Vector2 _currentDisplayDirection; 
 
-        private void OnEnable()
+        private void Awake()
         {
             _mainCamera = Camera.main;
             _crosshairImage = GetComponent<Image>();
@@ -35,7 +35,7 @@ namespace Lumenfish.Player.UI
             CinemachineCore.CameraUpdatedEvent.AddListener(OnCameraUpdated);
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             CinemachineCore.CameraUpdatedEvent.RemoveListener(OnCameraUpdated);
         }
