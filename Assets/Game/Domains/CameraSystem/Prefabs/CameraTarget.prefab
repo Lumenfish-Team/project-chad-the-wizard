@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e5fd00ce8bc40919437e0868f10c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPositionVariable: {fileID: 11400000, guid: 7199623695ffd4f549aeb2704401b117, type: 2}
   lookDirectionVariable: {fileID: 11400000, guid: 08e03aee4d0b44ff8a99816146739e4b, type: 2}
   moveDirectionVariable: {fileID: 11400000, guid: 7b90fc7af48b64a1ea72d5f2f144fc87, type: 2}
   aimLeadDistance: 1
