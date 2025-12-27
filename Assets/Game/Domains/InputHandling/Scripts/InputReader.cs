@@ -46,14 +46,14 @@ namespace Lumenfish.InputHandling
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            UpdateActiveInputDevice(context);
+            UpdateActiveDevice(context);
             
             moveInputVariable.SetValue(context.ReadValue<Vector2>());
         }
 
         public void OnLook(InputAction.CallbackContext context)
         {
-            UpdateActiveInputDevice(context);
+            UpdateActiveDevice(context);
 
             switch (activeInputDeviceVariable.Value)
             {
@@ -65,7 +65,7 @@ namespace Lumenfish.InputHandling
                 
                 case InputDeviceID.MouseKeyboard:
                 {
-                    mousePositionInputVariable.SetValue(context.ReadValue<Vector2>());
+                    mousePositionInputVariable.SetValue(Mouse.current.position.ReadValue());
                     break;
                 }
                 
@@ -74,17 +74,16 @@ namespace Lumenfish.InputHandling
             }
         }
 
-        private void UpdateActiveInputDevice(InputAction.CallbackContext context)
+        private void UpdateActiveDevice(InputAction.CallbackContext context)
         {
-            if (context.performed && context.control.device is Gamepad)
-            {
-                activeInputDeviceVariable.Value = InputDeviceID.Gamepad;
-            }
+            if (!context.performed) return;
 
-            if (context.performed && context.control.device is Keyboard or Mouse)
+            activeInputDeviceVariable.Value = context.control.device switch
             {
-                activeInputDeviceVariable.Value = InputDeviceID.MouseKeyboard;
-            }
+                Gamepad => InputDeviceID.Gamepad,
+                Mouse or Keyboard => InputDeviceID.MouseKeyboard,
+                _ => activeInputDeviceVariable.Value
+            };
         }
     }
 }

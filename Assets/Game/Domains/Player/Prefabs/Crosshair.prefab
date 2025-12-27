@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 461510232161745485}
   - component: {fileID: 4442101904826713018}
   - component: {fileID: 1692689848057025474}
+  - component: {fileID: 110322296628009336}
+  - component: {fileID: 5755603078382101046}
   m_Layer: 5
-  m_Name: CrosshairRenderer
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +90,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050829fed2ab949abbecea24c680922d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamepadRenderer: {fileID: 110322296628009336}
+  mouseRenderer: {fileID: 5755603078382101046}
+  activeInputDeviceVariable: {fileID: 11400000, guid: 1cd07273995b046dda9d1a1e76b6f3d3, type: 2}
+--- !u!114 &110322296628009336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2447675559499725782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9673af3d84e14469bbe7230b31fbb805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   renderDistance: 3
-  crosshairSpeed: 50
-  lookDirectionVariable: {fileID: 11400000, guid: 08e03aee4d0b44ff8a99816146739e4b, type: 2}
+  crosshairSpeed: 20
+  gamepadInputVariable: {fileID: 11400000, guid: 08e03aee4d0b44ff8a99816146739e4b, type: 2}
   playerPositionVariable: {fileID: 11400000, guid: 7199623695ffd4f549aeb2704401b117, type: 2}
+  playerLookDirectionVariable: {fileID: 11400000, guid: 1cb35c65316494b41adc977fd98e1726, type: 2}
+--- !u!114 &5755603078382101046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2447675559499725782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419e6cf820564256ab09d6de6c6bcb84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseScreenPositionVariable: {fileID: 11400000, guid: d2fba05de4fc9499395d918fcba65f33, type: 2}
+  playerPositionVariable: {fileID: 11400000, guid: 7199623695ffd4f549aeb2704401b117, type: 2}
+  playerLookDirectionVariable: {fileID: 11400000, guid: 1cb35c65316494b41adc977fd98e1726, type: 2}
