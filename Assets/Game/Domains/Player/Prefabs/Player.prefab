@@ -163,8 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6541e4633ef2641d0a0bdd8fa493b79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirectionVariable: {fileID: 11400000, guid: 7b90fc7af48b64a1ea72d5f2f144fc87, type: 2}
-  lookDirectionVariable: {fileID: 11400000, guid: 08e03aee4d0b44ff8a99816146739e4b, type: 2}
+  moveInputVariable: {fileID: 11400000, guid: 7b90fc7af48b64a1ea72d5f2f144fc87, type: 2}
+  gamepadLookInputVariable: {fileID: 11400000, guid: 08e03aee4d0b44ff8a99816146739e4b, type: 2}
+  mousePositionInputVariable: {fileID: 11400000, guid: d2fba05de4fc9499395d918fcba65f33, type: 2}
+  activeInputDeviceVariable: {fileID: 11400000, guid: 1cd07273995b046dda9d1a1e76b6f3d3, type: 2}
 --- !u!114 &3277850212092000868
 MonoBehaviour:
   m_ObjectHideFlags: 0
