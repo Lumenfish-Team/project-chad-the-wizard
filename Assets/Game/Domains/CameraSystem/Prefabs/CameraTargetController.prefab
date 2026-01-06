@@ -47,7 +47,10 @@ MonoBehaviour:
   playerPositionVariable: {fileID: 11400000, guid: 7199623695ffd4f549aeb2704401b117, type: 2}
   lookDirectionVariable: {fileID: 11400000, guid: 1cb35c65316494b41adc977fd98e1726, type: 2}
   moveDirectionVariable: {fileID: 11400000, guid: 7b90fc7af48b64a1ea72d5f2f144fc87, type: 2}
+  activeInputDeviceVariable: {fileID: 11400000, guid: 1cd07273995b046dda9d1a1e76b6f3d3, type: 2}
+  mouseScreenPositionVariable: {fileID: 11400000, guid: d2fba05de4fc9499395d918fcba65f33, type: 2}
   aimLeadDistance: 1
   aimLeadSmoothTime: 0.1
+  mouseDeadzoneRadius: 1
   movementLeadDistance: 1.1
   movementLeadSmoothTime: 0.7
