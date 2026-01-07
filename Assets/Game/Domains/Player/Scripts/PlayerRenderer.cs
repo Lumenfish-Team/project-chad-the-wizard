@@ -11,7 +11,7 @@ namespace Lumenfish.Player
         [Header("Components")] 
         [SerializeField] private Animator animator;
         
-        [Header("References")]
+        [Header("Data")]
         [SerializeField] private Vector2Variable lookDirectionVariable;
         [SerializeField] private Vector2Variable moveDirectionVariable;
 
