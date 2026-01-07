@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581690476338320072}
   - component: {fileID: 4159390640088603958}
+  - component: {fileID: 4057483255921609394}
   m_Layer: 0
   m_Name: ShotgunWeapon
   m_TagString: Untagged
@@ -51,6 +52,25 @@ MonoBehaviour:
   fireStartPoint: {fileID: 5966753674903948956}
   lookDirectionVariable: {fileID: 11400000, guid: 1cb35c65316494b41adc977fd98e1726, type: 2}
   isHoldingFireButtonVariable: {fileID: 11400000, guid: dfc0143adbbdb4a7182d56222ef1c354, type: 2}
+--- !u!114 &4057483255921609394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116353573440896387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9444e31398bee4480be44e4c002e0ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPivot: {fileID: 581690476338320072}
+  weaponSpriteRenderer: {fileID: 1208941759637402825}
+  lookDirectionVariable: {fileID: 11400000, guid: 1cb35c65316494b41adc977fd98e1726, type: 2}
+  moveDirectionVariable: {fileID: 11400000, guid: 7b90fc7af48b64a1ea72d5f2f144fc87, type: 2}
+  orbitalDistance: 0.5
+  behindLayerIndex: 0
+  frontLayerIndex: 2
 --- !u!1 &1161425900295180195
 GameObject:
   m_ObjectHideFlags: 0
